@@ -1,0 +1,6 @@
+CMakeFiles/
+X64/
+.vscode/
+yolo_mark
+CMakeCache.txt
+*.cmake

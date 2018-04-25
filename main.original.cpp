@@ -36,8 +36,6 @@ std::atomic<int> x_end, y_end;
 std::atomic<int> x_size, y_size;
 std::atomic<bool> draw_select, selected;
 
-std::atomic<bool> remove_one_mark;
-
 std::atomic<int> add_id_img;
 Rect prev_img_rect(0, 0, 50, 100);
 Rect next_img_rect(1280 - 50, 0, 50, 100);
@@ -482,13 +480,6 @@ int main(int argc, char *argv[])
 						selected_rect.tl() + Point2i(2, 22), FONT_HERSHEY_SIMPLEX, 0.8, Scalar(150, 200, 150), 2);
 				}
 			}
-			if( remove_one_mark==true)
-			{
-				remove_one_mark = false;
-				marks_changed = true;
-				full_image.copyTo(full_image_roi);
-				current_coord_vec.pop_back();
-			}
 
 			if (clear_marks == true)
 			{
@@ -610,9 +601,6 @@ int main(int argc, char *argv[])
 			case 65363:     // ->
 			case 93:		// ]
 				++trackbar_value;
-				break;
-			case 'z':
-				remove_one_mark = true;
 				break;
 			case 'c':       // c
 			case 1048675:	// c
