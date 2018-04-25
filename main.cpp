@@ -593,7 +593,9 @@ int main(int argc, char *argv[])
 
 			if (pressed_key >= '0' && pressed_key <= '9') current_obj_id = pressed_key - '0';   // 0 - 9
 			if (pressed_key >= 1048624 && pressed_key <= 1048633) current_obj_id = pressed_key - 1048624;   // 0 - 9
-
+			if(pressed_key=='+') current_obj_id++;
+			if(pressed_key=='-'&&current_obj_id>0)current_obj_id--;
+			 
 			switch (pressed_key)
 			{
 			case 32:        // SPACE
